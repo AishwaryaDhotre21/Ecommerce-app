@@ -1,0 +1,104 @@
+{% extends 'base.html'%} {%block content%}
+
+<div class="container m-5 mx-auto">
+  <div class="p-4 m-4">
+    <div class="col-lg-5 bg-light mx-auto border rounded pb-4 pt-4">
+      <h3
+        class="alert alert-light text-center text-dark text-light border rounded"
+      >
+        Create An Account
+      </h3>
+      <form action="/signup" method="POST">
+        {% csrf_token %}
+
+
+        <!--Error message-->
+        {% if error %}
+        <div class="alert alert-danger text-center" role="alert">
+          {{ error }}
+        </div>
+        {% endif %}
+
+        <!-- First Name-->
+        <div class="form-group m-3">
+          <label for="">First Name</label>
+          <input
+            type="text"
+            name="fname"
+            id=""
+            class="form-control form-control-sm"
+            placeholder=""
+            aria-describedby="helpId"
+            value="{{values.first_name}}"
+            required
+          />
+        </div>
+
+        <!-- Last Name-->
+        <div class="form-group m-3">
+          <label for="">Last Name</label>
+          <input
+            type="text"
+            name="lname"
+            id=""
+            class="form-control form-control-sm"
+            placeholder=""
+            aria-describedby="helpId"
+            value="{{values.last_name}}"
+            required
+          />
+        </div>
+
+        <!-- Phone number -->
+        <div class="form-group m-3">
+          <label for="">Mobile Number</label>
+          <input
+            type="text"
+            name="phone"
+            id=""
+            class="form-control form-control-sm"
+            placeholder=""
+            aria-describedby="helpId"
+            value="{{values.phone}}"
+            required
+          />
+        </div>
+
+        <!-- Email-->
+        <div class="form-group m-3">
+          <label for="">Email</label>
+          <input
+            type="email"
+            name="email"
+            id=""
+            class="form-control form-control-sm"
+            placeholder="example@gmail.com"
+            aria-describedby="helpId"
+            value="{{values.email}}"
+            required
+          />
+        </div>
+
+        <!-- Password-->
+        <div class="form-group m-3">
+          <label for="">Password</label>
+          <input
+            type="password"
+            name="password"
+            id=""
+            class="form-control form-control-sm"
+            placeholder="*********"
+            aria-describedby="helpId"
+            required
+          />
+        </div>
+        <!-- Submit-->
+        <div class="form-group m-3">
+          <input type="submit" value="Signup" class="btn btn-sm btn-info" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{%endblock%}
